@@ -2,8 +2,17 @@
 public class DeafGrandmaApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		DeafGrandmaApp app = new DeafGrandmaApp();
 
+		app.launch();
+
+	}
+
+	private void launch() {
+		// Scanner 
+		// User Prompt 
+		// Instantiate Grandma 
+		// Bulk of where logic will be
 	}
 
 }
