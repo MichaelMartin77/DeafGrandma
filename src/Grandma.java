@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Grandma {
 
 	public boolean canGrandmaHearyou(String phrase) {
-		boolean canSheHearYou = false;
+//		boolean canSheHearYou = false;
 		// logic to determine if she can hear you
 		return phrase.equals(phrase.toUpperCase());
 

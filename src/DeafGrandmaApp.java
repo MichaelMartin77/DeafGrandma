@@ -9,24 +9,39 @@ public class DeafGrandmaApp {
 	}
 
 	private void launch() {
-		// Scanner
-		Scanner sc = new Scanner(System.in);
-
-		// User Prompt
-		System.out.println("Say something to Grandma: ");
-		String grandsonInput = sc.nextLine();
-	
-
-		System.out.println("You said: " + grandsonInput);
-
-		// Instantiate Grandma
-		Grandma grandma = new Grandma(); 
-		boolean canSheHearYou = grandma.canGrandmaHearyou(grandsonInput); 
 		
-		if(canSheHearYou) {
-			System.out.println("NO... NOT TODAY SONNY. GRANDMA IS TIRED");
-		} else {
-			System.out.println("HUH JOHNNY??? SPEAK UP I CAN'T HEAR YOU!");
+		
+		Scanner sc = new Scanner(System.in);
+		boolean continueConversation = true;
+		
+		// Continuing talking to grandma until you shout goodbye 
+		while(continueConversation) {
+			// Scanner
+			
+
+			// Ask the user to say something to grandma 
+			System.out.println("Say something to Grandma: ");
+			String grandsonInput = sc.nextLine();
+		
+
+			// Instantiate Grandma
+			Grandma grandma = new Grandma(); 
+			boolean canSheHearYou = grandma.canGrandmaHearyou(grandsonInput); 
+			
+			
+			if (grandsonInput.equals("GOODBYE")) {
+				System.out.println("SMELL YOU LATER");
+				continueConversation = false;
+				break;
+			}
+			
+			
+			if(canSheHearYou) {
+				System.out.println("NO... NOT SINCE MY LAST MEAL");
+			} else {
+				System.out.println("HUH JOHNNY??? SPEAK UP I CAN'T HEAR YOU!");
+			} 
+	
 		}
 		
 
