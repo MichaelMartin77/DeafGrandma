@@ -1,33 +1,55 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Grandma {
 
+	public String[] affirmative = { "HEY JOHHNY", "DON'T INTERRUPT MY SHOW!", "HEY, IM DOING OKAY",
+			"HEY JOHNNY I'M GLAD YOU'RE HERE CAN YOU HELP ME TO THE LIVING ROOM",
+			"HEY IM TOO TIRED TO TALK NOW JOHNNY" };
+
+	public String[] negativeResponse = { "I AGREE IT IS COLD IN HERE", "TUESDAY", "IM READY FOR MY SOAP OPERA TOO",
+			"NO NOT SINCE WAR", "I MISS PHIL TOO" };
+
+	public String[] farewellResponses = { "I LOVE YOU DARLING, GOODBYE", "COMEBACK NOW.. YOU HEAR ME!",
+			"GRANDMA IS GONNA MISS YOU", "GOODBYE, I'LL SEE YOU TOMORROW?", "BYE BYE" };
+
 	public boolean canGrandmaHearyou(String phrase) {
 //		boolean canSheHearYou = false;
-		// logic to determine if she can hear you
+		// logic to determine if Grandma can hear you
 		return phrase.equals(phrase.toUpperCase());
 
 	}
 
+	// Stretch Goal: Refactor code so that grandma can randomly choose an
+	// response from  any array
 	public String grandmaResponse(String respnseType) {
-		String [] response = {};
-		// logic to determine response
+		Random random = new Random();
+		String[] response = null;
+		// logic to determine Grandmas response
 		
-		String[] affirmative = {"HEY JOHHNY","DON'T INTERRUPT MY SHOW!","HEY, IM DOING OKAY", "HEY JOHNNY I'M GLAD YOU'RE HERE CAN YOU HELP ME TO THE LIVING ROOM", "HEY IM TOO TIRED TO TALK NOW JOHNNY" };
-		String [] negativeResponse = {"I AGREE IT IS COLD IN HERE", "TUESDAY", "IM READY FOR MY SOAP OPERA TOO", "NO NOT SINCE WAR", "I MISS PHIL TOO"}; 
-		String[] farewellResponses = {"I LOVE YOU DARLING, GOODBYE", "COMEBACK NOW YOU HEAR ME", "GRANDMA IS GONNA MISS YOU", "GOODBYE, I'LL SEE YOU TOMORROW?", "BYE BYE"};
-		
-		if (respnseType.equals("affirmative")) {
+	
+
+		switch (respnseType) {
+		case "affirmative":
 			response = affirmative;
-		} else if(respnseType.equals("negative")) {
+			break;
+		case "negative":
 			response = negativeResponse;
-		} else if (respnseType.equals("farewell")) {
+			break;
+		case "farewell":
 			response = farewellResponses;
+			break;
+
+		default: 
+			String[][] allResponses = { affirmative, negativeResponse, farewellResponses };
+            response = allResponses[random.nextInt(allResponses.length)];
+            break;
 		}
-		
-		// Select a random index using Math.random()
-		int randomIndex = (int) (Math.random() * response.length); 
-		
-		return response[randomIndex]; 
+
+
+		int randomIndex = random.nextInt(response.length);
+		return response[randomIndex];
+
 	}
+
 }
